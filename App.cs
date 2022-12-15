@@ -71,6 +71,9 @@ namespace RAB_Session_06_Skills
             pData1.ToolTip = "Button 1 tool tip";
             pData2.ToolTip = "Button 2 tool tip";
 
+            // step 5b: set command availability
+            pData1.AvailabilityClassName = "RAB_Session_06_Skills.CommandAvailability";
+
             // step 6: create buttons
             panel1.AddItem(pData1);
 
@@ -112,6 +115,22 @@ namespace RAB_Session_06_Skills
         {
             string assemblyName = Assembly.GetExecutingAssembly().Location;
             return assemblyName;
+        }
+    }
+
+    // external command availability
+    public class CommandAvailability : IExternalCommandAvailability
+    {
+        // interface member method
+        public bool IsCommandAvailable(UIApplication app, CategorySet cate)
+        {
+            // is file workshared
+            if (app.ActiveUIDocument.Document.IsWorkshared)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -8,4 +8,13 @@
     <VendorId>com.typepad.thebuildingcoder</VendorId>
     <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
   </AddIn>
+  <AddIn Type="Command">
+    <Text>Change Units</Text>
+    <Description>Some description for RevitAddinAcademy</Description>
+    <Assembly>RAB_Session 06_Skills.dll</Assembly>
+    <FullClassName>RAB_Session_06_Skills.CmdSwitchUnits</FullClassName>
+    <ClientId>cfaf3893-b6fd-404d-b970-34a5c1f7753F</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
 </RevitAddIns>
