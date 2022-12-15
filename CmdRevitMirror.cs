@@ -13,7 +13,7 @@ using System.Diagnostics;
 namespace RAB_Session_06_Skills
 {
     [Transaction(TransactionMode.Manual)]
-    public class CmdCommand2 : IExternalCommand
+    public class CmdRevitMirror : IExternalCommand
     {
         public Result Execute(
           ExternalCommandData commandData,
@@ -25,7 +25,11 @@ namespace RAB_Session_06_Skills
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
 
-            TaskDialog.Show("Test", "Got to command 2");
+            // get Revit Command Id for command to duplicate - In this case the Mirror Project command
+            RevitCommandId commandId = RevitCommandId.LookupPostableCommandId(PostableCommand.MirrorProject);
+
+            // Now that we have the command Id, we can run the command using PostCommand
+            uiapp.PostCommand(commandId);
 
             return Result.Succeeded;
         }
