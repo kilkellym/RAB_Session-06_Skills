@@ -48,6 +48,9 @@ namespace RAB_Session_06_Skills
             PushButtonData pData5 = new PushButtonData("button5", "Button 5", assemblyName, "RAB_Session_06_Skills.CmdCommand1");
             PushButtonData pData6 = new PushButtonData("button6", "This is Button 6", assemblyName, "RAB_Session_06_Skills.CmdCommand2");
 
+            // duplicate Revit command
+            PushButtonData pData7 = new PushButtonData("button7", "Mirror\rProject", assemblyName, "RAB_Session_06_Skills.CmdRevitMirror");
+
             PulldownButtonData pullDownData1 = new PulldownButtonData("pulldown1", "Pulldown Button");
             SplitButtonData splitData1 = new SplitButtonData("split1", "Split Button");
 
@@ -65,6 +68,9 @@ namespace RAB_Session_06_Skills
             pData6.LargeImage = BitmapToImageSource(RAB_Session_06_Skills.Properties.Resources.Red_32);
             pData6.Image = BitmapToImageSource(RAB_Session_06_Skills.Properties.Resources.Red_16);
 
+            pData7.LargeImage = BitmapToImageSource(RAB_Session_06_Skills.Properties.Resources.Red_32);
+            pData7.Image = BitmapToImageSource(RAB_Session_06_Skills.Properties.Resources.Red_16);
+
             pullDownData1.LargeImage = BitmapToImageSource(RAB_Session_06_Skills.Properties.Resources.Blue_32);
 
             // step 5: add tool tips
@@ -80,9 +86,11 @@ namespace RAB_Session_06_Skills
 
             PulldownButton pull1 = panel2.AddItem(pullDownData1) as PulldownButton;
             pull1.AddPushButton(pData5);
-            
 
             panel1.AddStackedItems(pData2, pData6);
+
+            // add duplicate Revit command
+            panel1.AddItem(pData7);
 
             return Result.Succeeded;
         }
